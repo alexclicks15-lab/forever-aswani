@@ -248,7 +248,7 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
-  display: inline-block;
+  display: inline;
   filter: drop-shadow(0 0 10px rgba(236, 64, 122, 0.5)) drop-shadow(0 0 25px rgba(216, 27, 96, 0.3));
   animation: glowPulseRose 4s ease-in-out infinite;
 }
@@ -260,7 +260,7 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
-  display: inline-block;
+  display: inline;
   filter: drop-shadow(0 0 10px rgba(255, 179, 0, 0.5)) drop-shadow(0 0 25px rgba(255, 143, 0, 0.3));
   animation: glowPulseGold 4.5s ease-in-out infinite;
 }
@@ -272,7 +272,7 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
-  display: inline-block;
+  display: inline;
   filter: drop-shadow(0 0 10px rgba(171, 71, 188, 0.5)) drop-shadow(0 0 25px rgba(126, 87, 194, 0.3));
   animation: glowPulseViolet 5s ease-in-out infinite;
 }
@@ -285,7 +285,7 @@ body {
   -webkit-text-fill-color: transparent;
   font-weight: 700;
   font-style: normal;
-  display: inline-block;
+  display: inline;
   filter: drop-shadow(0 0 14px rgba(255, 87, 34, 0.6)) drop-shadow(0 0 35px rgba(255, 112, 67, 0.35));
   animation: glowPulseCoralSunset 4s ease-in-out infinite;
 }

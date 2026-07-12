@@ -2,7 +2,7 @@
    Service Worker — Cache-first for static assets
    ==================================================== */
 
-const CACHE_NAME = 'forever-aswani-v13';
+const CACHE_NAME = 'forever-aswani-v14';
 const ASSETS = [
   './',
   'index.html',
