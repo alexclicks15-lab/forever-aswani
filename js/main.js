@@ -491,6 +491,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- 9. Service Worker registration ----
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js?v=2.1').catch(() => {});
+    navigator.serviceWorker.register('sw.js?v=2.2').catch(() => {});
   }
 });
