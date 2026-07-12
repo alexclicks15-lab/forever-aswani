@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Forever Aswani ❤️</title>
+  <link rel="canonical" href="https://alexclicks15-lab.github.io/forever-aswani/" />
+  <meta name="description"
+    content="A love story written in the stars. Some people spend years searching for love — mine arrived carrying a smile." />
+  <meta property="og:title" content="Forever Aswani ❤️" />
+  <meta property="og:description"
+    content="Some people spend years searching for love. Mine arrived carrying a smile." />
+  <meta property="og:image" content="assets/images/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Forever Aswani ❤️" />
+  <meta name="twitter:description"
+    content="Some people spend years searching for love. Mine arrived carrying a smile." />
+  <meta name="twitter:image" content="assets/images/og-preview.png" />
+  <meta name="theme-color" content="#1A0A2E" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>" />
+  <link rel="apple-touch-icon" href="assets/images/og-preview.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=2.1" />
+  <script>
+    // Force cache busting and service worker update across updates
+    const BUILD_VERSION = 'v2.1';
+    if (localStorage.getItem('fa_build_version') !== BUILD_VERSION) {
+      localStorage.setItem('fa_build_version', BUILD_VERSION);
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(regs => {
+          for (const reg of regs) {
+            reg.unregister();
+          }
+          if (window.caches) {
+            caches.keys().then(keys => {
+              Promise.all(keys.map(k => caches.delete(k))).then(() => {
+                window.location.reload(true);
+              });
+            });
+          } else {
+            window.location.reload(true);
+          }
+        });
+      } else {
+        window.location.reload(true);
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- ====== LOADING ====== -->
+  <div id="loading">
+    <div class="loading__heart">❤️</div>
+    <p class="loading__text">Preparing our story...</p>
+  </div>
+
+  <!-- ====== AUDIO ====== -->
+  <button id="audio-toggle" aria-label="Toggle music" title="Toggle music">
+    <svg id="audio-icon-on" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+      <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" />
+    </svg>
+    <svg id="audio-icon-off" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" style="display:none">
+      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+      <line x1="23" y1="9" x2="17" y2="15" />
+      <line x1="17" y1="9" x2="23" y2="15" />
+    </svg>
+  </button>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- =========================================================
+       ACT I — THE BEGINNING
+       ========================================================= -->
+
+  <main id="story">
+
+    <!-- ▸ PROLOGUE -->
+    <section id="scene-prologue" class="scene scene--black" data-scene="prologue">
+      <div class="env env--stars-subtle"></div>
+      <div class="scene__content">
+        <div class="narration narration--typewriter" id="prologue-narration">
+          <p class="n-line">Some people spend years searching for <span class="n-love">love</span>.</p>
+          <p class="n-line n-pause">Mine arrived carrying a smile...</p>
+          <p class="n-line">in a pink churidar...</p>
+          <p class="n-line">inside a hospital...</p>
+          <p class="n-line n-pause">without either of us knowing</p>
+          <p class="n-line n-em">our lives were about to change <span class="n-forever">forever.</span></p>
+        </div>
+        <button class="scroll-cue" id="btn-begin-story" aria-label="Begin our story">
+          <span>Begin Our Story</span>
+          <div class="scroll-cue__chevron">↓</div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ▸ THE HOSPITAL — Walking In -->
+    <section id="scene-hospital-walk" class="scene scene--hospital" data-scene="hospital-walk">
+      <div class="env">
+        <div class="sunbeams"><span></span><span></span><span></span></div>
+        <div class="env-dust"></div>
+      </div>
+      <div class="scene__content">
+        <p class="chapter-date">December 5th</p>
+        <div class="narration">
+          <p class="n-line">It was a quiet night.</p>
+          <p class="n-line">You called to order food, just like you had before.</p>
+          <p class="n-line">I already knew your name: Aswani.</p>
+          <p class="n-line n-pause">But that night, the delivery boy was busy.</p>
+          <p class="n-line">So I decided to deliver the food myself.</p>
+          <p class="n-line n-pause">I got in my car and started driving...</p>
+          <p class="n-line">listening to your voice on the phone,</p>
+          <p class="n-line">giving me instructions how to reach.</p>
+        </div>
+        <div class="hospital-visual">
+          <div class="food-box-float">🚗</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ THE HOSPITAL — Seeing Her -->
+    <section id="scene-hospital-see" class="scene scene--hospital-glow" data-scene="hospital-see">
+      <div class="env">
+        <div class="golden-orb"></div>
+        <div class="silhouettes-bg">
+          <span class="sil"></span><span class="sil"></span><span class="sil"></span><span class="sil"></span><span
+            class="sil"></span>
+        </div>
+      </div>
+      <div class="scene__content">
+        <div class="narration">
+          <p class="n-line">I parked outside the building.</p>
+          <p class="n-line n-pause">Then... you came down from your mother's room.</p>
+          <p class="n-line">Walking towards me in the dim light,</p>
+          <p class="n-line n-em">standing there in your pink churidar.</p>
+          <p class="n-line n-pause">The world didn't stop.</p>
+          <p class="n-line">It just… became quieter.</p>
+        </div>
+        <div class="heartbeat-vis">
+          <svg viewBox="0 0 400 60" preserveAspectRatio="none">
+            <path class="hb-path" d="M0,30 L120,30 L140,30 L150,5 L160,55 L170,15 L180,40 L190,30 L400,30" fill="none"
+              stroke="currentColor" stroke-width="2" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ THE HOSPITAL — Time Freezes -->
+    <section id="scene-hospital-freeze" class="scene scene--hospital-freeze" data-scene="hospital-freeze">
+      <div class="env">
+        <div class="golden-orb golden-orb--large"></div>
+        <div class="floating-particles-env"></div>
+      </div>
+      <div class="scene__content">
+        <div class="narration">
+          <p class="n-line">Everyone around me faded away.</p>
+          <p class="n-line">The noise became silence.</p>
+          <p class="n-line n-pause">And all I could see…</p>
+          <p class="n-line n-em">was you.</p>
+          <p class="n-line n-long-pause">I thought I was delivering food...</p>
+          <p class="n-line n-em">I didn't know I was delivering my heart.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ THE FAMILIAR FEELING -->
+    <section id="scene-familiar" class="scene scene--dreamy" data-scene="familiar">
+      <div class="env">
+        <div class="dream-haze"></div>
+      </div>
+      <div class="scene__content">
+        <div class="narration">
+          <p class="n-line">We had never met before that day…</p>
+          <p class="n-line n-pause">but somehow, my heart already recognised you.</p>
+          <p class="n-line">As if we had known each other</p>
+          <p class="n-line n-em">in another lifetime.</p>
+          <p class="n-line n-long-pause">You already felt like <span class="n-home">home.</span></p>
+          <p class="n-line n-pause">Even though I only knew your name from a delivery order.</p>
+        </div>
+        <div class="familiar-glow-ring"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT II — CURIOSITY → FRIENDSHIP → LOVE
+         ========================================================= -->
+
+    <!-- ▸ FIRST CONVERSATIONS -->
+    <section id="scene-first-talk" class="scene scene--warm-dark" data-scene="first-talk">
+      <div class="scene__content">
+        <div class="narration">
+          <p class="n-line">It started with food.</p>
+          <p class="n-line n-pause">A simple question.</p>
+          <p class="n-line">A simple answer.</p>
+          <p class="n-line n-pause">But something made me come back.</p>
+          <p class="n-line">The next day…</p>
+          <p class="n-line">and the next…</p>
+          <p class="n-line">and the next.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ CHAT EVOLUTION -->
+    <section id="scene-chat" class="scene scene--chat-dark" data-scene="chat">
+      <div class="scene__content">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-header"><span class="phone-name">Aswani ❤️</span></div>
+          <div class="chat-container" id="chat-scroll">
+
+            <div class="chat-day" data-chat="1">
+              <div class="chat-date">Day 1</div>
+              <div class="chat-bubble chat-bubble--sent">How was the food? 😊</div>
+              <div class="chat-bubble chat-bubble--received">It was really good! Thank you 🙏</div>
+            </div>
+
+            <div class="chat-day" data-chat="2">
+              <div class="chat-date">Next Day</div>
+              <div class="chat-bubble chat-bubble--sent">Did you eat?</div>
+              <div class="chat-bubble chat-bubble--received">Not yet 😅</div>
+              <div class="chat-bubble chat-bubble--sent">Go eat! Now! 😤</div>
+            </div>
+
+            <div class="chat-day" data-chat="3">
+              <div class="chat-date">A few days later</div>
+              <div class="chat-bubble chat-bubble--sent">Good morning ☀️</div>
+              <div class="chat-bubble chat-bubble--received">Good morning! 🌸</div>
+              <div class="chat-bubble chat-bubble--sent">Sleep well?</div>
+              <div class="chat-bubble chat-bubble--received">I slept so well 😊</div>
+            </div>
+
+            <div class="chat-day" data-chat="4">
+              <div class="chat-date">Late nights began</div>
+              <div class="chat-time">11:47 PM</div>
+              <div class="chat-bubble chat-bubble--sent">Are you still awake?</div>
+              <div class="chat-bubble chat-bubble--received">Can't sleep 🙈</div>
+              <div class="chat-time">1:23 AM</div>
+              <div class="chat-bubble chat-bubble--sent">Tell me something</div>
+              <div class="chat-bubble chat-bubble--received">Like what?</div>
+              <div class="chat-bubble chat-bubble--sent">Anything. I just like talking to you.</div>
+              <div class="chat-time">3:12 AM</div>
+              <div class="chat-bubble chat-bubble--received">We should sleep 😅</div>
+              <div class="chat-bubble chat-bubble--sent">Five more minutes?</div>
+              <div class="chat-bubble chat-bubble--received">😊</div>
+            </div>
+
+            <div class="chat-day" data-chat="5">
+              <div class="chat-date">Then came the laughing</div>
+              <div class="chat-bubble chat-bubble--sent">You won't believe what happened today 😂</div>
+              <div class="chat-bubble chat-bubble--received">Tell me!! 😂</div>
+              <div class="chat-bubble chat-bubble--sent">[a very long funny story]</div>
+              <div class="chat-bubble chat-bubble--received">STOP I can't breathe 🤣🤣🤣</div>
+            </div>
+
+            <div class="chat-day" data-chat="6">
+              <div class="chat-date">Then the flirting</div>
+              <div class="chat-bubble chat-bubble--sent">You looked really pretty today 😏</div>
+              <div class="chat-bubble chat-bubble--received">Stop it 🙈❤️</div>
+              <div class="chat-bubble chat-bubble--sent">I'm serious</div>
+              <div class="chat-bubble chat-bubble--received">🙈🙈🙈</div>
+            </div>
+
+            <div class="chat-day" data-chat="7">
+              <div class="chat-date">Hours became nothing</div>
+              <div class="chat-typing"><span></span><span></span><span></span></div>
+              <div class="chat-bubble chat-bubble--missed-call">📞 Missed Call (3)</div>
+              <div class="chat-bubble chat-bubble--voice">🎤 Voice Note — 14:22</div>
+              <div class="chat-bubble chat-bubble--sent">I can listen to your voice all day</div>
+              <div class="chat-bubble chat-bubble--received">Then call me 😊</div>
+            </div>
+
+            <div class="chat-day" data-chat="8">
+              <div class="chat-date">And then…</div>
+              <div class="chat-bubble chat-bubble--sent chat-bubble--love">I miss you.</div>
+              <div class="chat-read">✓✓ Read</div>
+              <div class="chat-bubble chat-bubble--received chat-bubble--love">I miss you too ❤️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ CHAT REFLECTION -->
+    <section id="scene-chat-reflect" class="scene scene--warm-dark" data-scene="chat-reflect">
+      <div class="scene__content">
+        <div class="narration narration--centered">
+          <p class="n-line">Those tiny conversations…</p>
+          <p class="n-line">slowly became longer.</p>
+          <p class="n-line n-pause">Food became friendship.</p>
+          <p class="n-line">Friendship became comfort.</p>
+          <p class="n-line n-pause">Comfort became something</p>
+          <p class="n-line n-em">I wasn't ready to name yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ FALLING IN LOVE — The Process -->
+    <section id="scene-falling" class="scene scene--falling" data-scene="falling">
+      <div class="env">
+        <div class="warm-gradient-shift"></div>
+      </div>
+      <div class="scene__content">
+        <div class="narration narration--centered">
+          <p class="n-line">I didn't fall in <span class="n-love">love</span> in one moment.</p>
+          <p class="n-line n-pause">It happened slowly.</p>
+          <p class="n-line">In the way I started checking my phone more often.</p>
+          <p class="n-line">In the way her name made me smile.</p>
+          <p class="n-line n-pause">In the way I'd look at her photos</p>
+          <p class="n-line">when she wasn't around.</p>
+          <p class="n-line n-pause">In the way I'd replay our conversations</p>
+          <p class="n-line">before falling asleep.</p>
+          <p class="n-line n-long-pause">I didn't decide to <span class="n-love">love</span> her.</p>
+          <p class="n-line n-em">I just looked up one day…</p>
+          <p class="n-line n-em">and realised she had become my world.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ THE BROWNIE — Kitchen -->
+    <section id="scene-brownie-kitchen" class="scene scene--kitchen" data-scene="brownie-kitchen">
+      <div class="env">
+        <div class="steam-env"><span></span><span></span><span></span></div>
+        <div class="warm-glow-env"></div>
+      </div>
+      <div class="scene__content">
+        <div class="brownie-montage">
+          <div class="b-step" data-bs="1"><span class="b-icon">🍫</span><span class="b-label">Chocolate</span></div>
+          <div class="b-step" data-bs="2"><span class="b-icon">🥚</span><span class="b-label">Ingredients</span></div>
+          <div class="b-step" data-bs="3"><span class="b-icon">🥣</span><span class="b-label">Mixing with love</span>
+          </div>
+          <div class="b-step" data-bs="4"><span class="b-icon">🔥</span><span class="b-label">Into the oven</span></div>
+          <div class="b-step" data-bs="5"><span class="b-icon">♨️</span><span class="b-label">Steam rising</span></div>
+          <div class="b-step" data-bs="6"><span class="b-icon">❄️</span><span class="b-label">Cooling</span></div>
+          <div class="b-step" data-bs="7"><span class="b-icon">🎁</span><span class="b-label">Wrapping</span></div>
+          <div class="b-step" data-bs="8"><span class="b-icon">🍰</span><span class="b-label">Her first brownie</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ THE BROWNIE — Narration -->
+    <section id="scene-brownie-narrate" class="scene scene--kitchen-warm" data-scene="brownie-narrate">
+      <div class="scene__content">
+        <div class="narration narration--centered">
+          <p class="n-line">She made me her first brownie</p>
+          <p class="n-line">on my birthday.</p>
+          <p class="n-line n-pause">I still don't know if she realised it…</p>
+          <p class="n-line">but she baked much more than chocolate.</p>
+          <p class="n-line n-em n-long-pause">She baked another reason for me to fall in <span
+              class="n-love">love</span>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ THE MARRIAGE JOKE -->
+    <section id="scene-joke" class="scene scene--warm-dark" data-scene="joke">
+      <div class="scene__content">
+        <div class="joke-visual">
+          <div class="joke-brownie-icon">🍰</div>
+          <div class="joke-dialogue">
+            <p class="joke-him" data-jk="1">"If you bake me brownies every day…"</p>
+            <p class="joke-him" data-jk="2">"I'll marry you."</p>
+          </div>
+          <p class="joke-her-laugh" data-jk="3">She laughs. 😄</p>
+          <div class="joke-silence" data-jk="4"><span class="music-dots">♪ · · ·</span></div>
+        </div>
+        <div class="narration narration--centered joke-reveal" data-jk="5">
+          <p class="n-line">The funny part…</p>
+          <p class="n-line n-pause">I wasn't asking for a girlfriend.</p>
+          <p class="n-line n-em">I was already looking at my future wife.</p>
+          <p class="n-line n-long-pause">I didn't know those words</p>
+          <p class="n-line n-em">would one day become my future.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ COOKING TOGETHER -->
+    <section id="scene-cooking" class="scene scene--kitchen" data-scene="cooking">
+      <div class="env">
+        <div class="steam-env"><span></span><span></span></div>
+      </div>
+      <div class="scene__content">
+        <div class="cooking-montage">
+          <div class="ck-step" data-ck="1"><span>🔪</span><span>Chopping</span></div>
+          <div class="ck-step" data-ck="2"><span>♨️</span><span>Sizzling</span></div>
+          <div class="ck-step" data-ck="3"><span>🍳</span><span>Cooking</span></div>
+          <div class="ck-step" data-ck="4"><span>🍽️</span><span>Plating</span></div>
+          <div class="ck-step" data-ck="5"><span>😊</span><span>Watching her eat</span></div>
+          <div class="ck-step" data-ck="6"><span>👀</span><span>Eye contact</span></div>
+          <div class="ck-step" data-ck="7"><span>😄</span><span>Small smiles</span></div>
+          <div class="ck-step" data-ck="8"><span>❤️</span><span>Happiness</span></div>
+        </div>
+        <div class="narration narration--centered">
+          <p class="n-line n-pause">Food brought us together.</p>
+          <p class="n-line">Cooking became the way I say</p>
+          <p class="n-line n-em">"I <span class="n-love">love</span> you."</p>
+          <p class="n-line n-long-pause">Every ingredient.</p>
+          <p class="n-line">Every meal.</p>
+          <p class="n-line">Every little smile she gave after the first bite.</p>
+          <p class="n-line n-em">Made it all worth it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ OUR JOURNEY TIMELINE -->
+    <section id="scene-timeline" class="scene scene--deep-dark" data-scene="timeline">
+      <div class="scene__content">
+        <h2 class="scene-heading">Our Journey</h2>
+        <div class="timeline">
+          <div class="timeline__line"></div>
+          <div class="tl-node" data-tl="1"><span class="tl-icon">🏥</span><span class="tl-label">Hospital</span></div>
+          <div class="tl-node" data-tl="2"><span class="tl-icon">🍱</span><span class="tl-label">Food</span></div>
+          <div class="tl-node" data-tl="3"><span class="tl-icon">📞</span><span class="tl-label">Phone Calls</span>
+          </div>
+          <div class="tl-node" data-tl="4"><span class="tl-icon">👋</span><span class="tl-label">First Meet</span></div>
+          <div class="tl-node" data-tl="5"><span class="tl-icon">🍇</span><span class="tl-label">Fruit Bae</span></div>
+          <div class="tl-node" data-tl="6"><span class="tl-icon">💕</span><span class="tl-label">First Date</span></div>
+          <div class="tl-node" data-tl="7"><span class="tl-icon">🍹</span><span class="tl-label">Mimosa</span></div>
+          <div class="tl-node" data-tl="8"><span class="tl-icon">💋</span><span class="tl-label">First Kiss</span></div>
+          <div class="tl-node" data-tl="9"><span class="tl-icon">🍳</span><span class="tl-label">Cooking</span></div>
+          <div class="tl-node" data-tl="10"><span class="tl-icon">💍</span><span class="tl-label">Today</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT III — HEALING & GROWTH
+         ========================================================= -->
+
+    <!-- ▸ HEALING — Darkness -->
+    <section id="scene-healing-dark" class="scene scene--healing-dark" data-scene="healing-dark">
+      <div class="env">
+        <div class="glass-shards"><span class="sh"></span><span class="sh"></span><span class="sh"></span><span
+            class="sh"></span><span class="sh"></span><span class="sh"></span><span class="sh"></span><span
+            class="sh"></span></div>
+      </div>
+      <div class="scene__content">
+        <div class="narration narration--centered">
+          <p class="n-line">There were darker days.</p>
+          <p class="n-line n-pause">Days I didn't want to talk about.</p>
+          <p class="n-line">Days I wasn't sure I'd get through.</p>
+          <p class="n-line n-pause">The world felt heavy.</p>
+          <p class="n-line">And I felt… broken.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ HEALING — Light Enters -->
+    <section id="scene-healing-light" class="scene scene--healing-light" data-scene="healing-light">
+      <div class="env">
+        <div class="healing-radiance"></div>
+        <div class="bloom-flowers">
+          <span class="bl">🌸</span><span class="bl">🌷</span><span class="bl">🌺</span><span class="bl">🌻</span><span
+            class="bl">🌼</span>
+        </div>
+      </div>
+      <div class="scene__content">
+        <div class="narration narration--centered">
+          <p class="n-line n-em">Then you came.</p>
+          <p class="n-line n-long-pause">You never tried to save me.</p>
+          <p class="n-line">You never tried to change me.</p>
+          <p class="n-line n-pause">You simply stayed beside me.</p>
+          <p class="n-line n-long-pause">And somehow…</p>
+          <p class="n-line n-em">that was enough.</p>
+          <p class="n-line n-long-pause">The colours returned.</p>
+          <p class="n-line">The pieces reconnected.</p>
+          <p class="n-line n-em">I slowly found myself again.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ EASTER EGG -->
+    <section id="scene-easter-egg" class="scene scene--playful" data-scene="easter-egg">
+      <div class="scene__content">
+        <div class="easter-egg-zone">
+          <p class="easter-hint">Psst… tap the banana 🤫</p>
+          <div class="banana-stage">
+            <div class="banana" id="banana-btn">🍌</div>
+            <div class="banana-sparkles" id="banana-sparkles"><span class="sparkle">✨</span><span
+                class="sparkle">💫</span><span class="sparkle">⭐</span><span class="sparkle">✨</span><span
+                class="sparkle">💫</span><span class="sparkle">⭐</span></div>
+          </div>
+          <div class="banana-reaction" id="banana-reaction">
+            <div class="banana-speech">
+              <p class="banana-quote-line" data-bd="1">"Don't you want...</p>
+              <p class="banana-quote-line" data-bd="2">my big banana?" 🍌</p>
+            </div>
+            <div class="banana-her-reaction">
+              <div class="laugh-emojis">
+                <span class="laugh-emoji" style="--delay:0">😂</span><span class="laugh-emoji"
+                  style="--delay:1">🤣</span><span class="laugh-emoji" style="--delay:2">😂</span><span
+                  class="laugh-emoji" style="--delay:3">🤣</span><span class="laugh-emoji" style="--delay:4">😂</span>
+              </div>
+              <p class="banana-laugh">She couldn't stop laughing ❤️</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ NICKNAME GARDEN -->
+    <section id="scene-garden" class="scene scene--garden" data-scene="garden">
+      <div class="scene__content">
+        <h2 class="scene-heading scene-heading--green">Our Secret Garden</h2>
+        <p class="garden-hint">Tap each flower to reveal a name ❤️</p>
+        <div class="garden">
+          <div class="flower" data-nickname="Fruity Bun ❤️">
+            <div class="flower__stem"></div>
+            <div class="flower__bloom">🌸</div>
+            <div class="flower__name"></div>
+          </div>
+          <div class="flower" data-nickname="Mundringa ❤️">
+            <div class="flower__stem"></div>
+            <div class="flower__bloom">🌷</div>
+            <div class="flower__name"></div>
+          </div>
+          <div class="flower" data-nickname="Sreekutty ❤️">
+            <div class="flower__stem"></div>
+            <div class="flower__bloom">🌹</div>
+            <div class="flower__name"></div>
+          </div>
+          <div class="flower" data-nickname="Baby Boy ❤️">
+            <div class="flower__stem"></div>
+            <div class="flower__bloom">🌻</div>
+            <div class="flower__name"></div>
+          </div>
+          <div class="flower" data-nickname="Unnikuttan ❤️">
+            <div class="flower__stem"></div>
+            <div class="flower__bloom">🌺</div>
+            <div class="flower__name"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT IV — DREAMS & PROMISES
+         ========================================================= -->
+
+    <!-- ▸ DREAMS TREE -->
+    <section id="scene-dreams" class="scene scene--dreams" data-scene="dreams">
+      <div class="scene__content">
+        <div class="narration narration--centered">
+          <p class="n-line">I started dreaming about us.</p>
+          <p class="n-line n-pause">Not just hoping.</p>
+          <p class="n-line n-em">Dreaming.</p>
+        </div>
+        <div class="dream-tree">
+          <div class="tree__trunk"></div>
+          <div class="tree__branches">
+            <div class="tree__branch" data-dream="Paris"><span class="branch__icon">🗼</span><span
+                class="branch__label">Paris</span></div>
+            <div class="tree__branch" data-dream="Disneyland"><span class="branch__icon">🏰</span><span
+                class="branch__label">Disneyland</span></div>
+            <div class="tree__branch" data-dream="Dream House"><span class="branch__icon">🏡</span><span
+                class="branch__label">Dream House</span></div>
+            <div class="tree__branch" data-dream="Kids"><span class="branch__icon">👶</span><span
+                class="branch__label">Kids</span></div>
+            <div class="tree__branch" data-dream="World Tour"><span class="branch__icon">🌍</span><span
+                class="branch__label">World Tour</span></div>
+            <div class="tree__branch" data-dream="Marriage"><span class="branch__icon">💍</span><span
+                class="branch__label">Marriage</span></div>
+            <div class="tree__branch" data-dream="Success"><span class="branch__icon">💰</span><span
+                class="branch__label">Success</span></div>
+            <div class="tree__branch" data-dream="Cooking Together"><span class="branch__icon">🍳</span><span
+                class="branch__label">Cooking Together</span></div>
+            <div class="tree__branch" data-dream="A Lifetime of Dates"><span class="branch__icon">❤️</span><span
+                class="branch__label">A Lifetime of Dates</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ DREAM SEQUENCE — Montage -->
+    <section id="scene-dream-seq" class="scene scene--dream-seq" data-scene="dream-seq">
+      <div class="env">
+        <div class="dream-haze"></div>
+      </div>
+      <div class="scene__content">
+        <div class="narration narration--centered">
+          <p class="n-line">I see us travelling together.</p>
+          <p class="n-line">Cooking dinner in our own kitchen.</p>
+          <p class="n-line">Watching sunsets from our balcony.</p>
+          <p class="n-line n-pause">Celebrating birthdays.</p>
+          <p class="n-line">Laughing at inside jokes nobody else understands.</p>
+          <p class="n-line n-pause">Building our home.</p>
+          <p class="n-line">Raising our children.</p>
+          <p class="n-line n-long-pause">Growing older.</p>
+          <p class="n-line">Holding hands with grey hair.</p>
+          <p class="n-line n-pause">Looking back at our younger selves…</p>
+          <p class="n-line n-em">and smiling.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ SUCCESS — Why I Dream -->
+    <section id="scene-success" class="scene scene--deep-dark" data-scene="success">
+      <div class="scene__content">
+        <div class="narration narration--centered">
+          <p class="n-line">People think I dream of success</p>
+          <p class="n-line">because I want money.</p>
+          <p class="n-line n-em n-pause">They are wrong.</p>
+          <p class="n-line n-long-pause">I dream of success because one day…</p>
+          <p class="n-line">I want you to look at me…</p>
+          <p class="n-line n-pause">and know…</p>
+          <p class="n-line n-em">choosing someone eleven years younger…</p>
+          <p class="n-line n-em">was the greatest decision you ever made.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT V — THE PROMISE & PROPOSAL
+         ========================================================= -->
+
+    <!-- ▸ THANK YOU -->
+    <section id="scene-thankyou" class="scene scene--stars" data-scene="thankyou">
+      <div class="scene__content">
+        <div class="narration narration--centered narration--grand">
+          <p class="n-line">Thank you…</p>
+          <p class="n-line">for choosing me.</p>
+          <p class="n-line n-long-pause">Thank you…</p>
+          <p class="n-line">for believing in me.</p>
+          <p class="n-line n-long-pause">Thank you…</p>
+          <p class="n-line">for healing the parts of me</p>
+          <p class="n-line">that nobody else could.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ THE PROMISE (Long) -->
+    <section id="scene-promise" class="scene scene--stars" data-scene="promise">
+      <div class="scene__content">
+        <div class="narration narration--centered narration--grand">
+          <p class="n-line">You are my <span class="n-love">world</span>.</p>
+          <p class="n-line">You are my safest <span class="n-home">place</span>.</p>
+          <p class="n-line">You are my greatest blessing.</p>
+          <p class="n-line n-long-pause">Please never think</p>
+          <p class="n-line">you have never been loved.</p>
+          <p class="n-line n-long-pause">Every single day,</p>
+          <p class="n-line">I will spend my life proving</p>
+          <p class="n-line n-em">how deeply you are <span class="n-love">loved</span>.</p>
+          <p class="n-line n-long-pause">I cannot promise a perfect life.</p>
+          <p class="n-line">But I can promise</p>
+          <p class="n-line">that every version of my future</p>
+          <p class="n-line n-em">has you in it.</p>
+          <p class="n-line n-long-pause">If I had to choose again…</p>
+          <p class="n-line">I would still choose you.</p>
+          <p class="n-line">Every time.</p>
+          <p class="n-line n-em">Every lifetime.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ THE PROPOSAL -->
+    <section id="scene-proposal" class="scene scene--proposal" data-scene="proposal">
+      <div class="scene__effects"><canvas id="ring-canvas"></canvas></div>
+      <div class="scene__content">
+        <div class="proposal-question">
+          <p class="proposal-name"><span class="n-aswani">Aswani…</span></p>
+          <p class="proposal-ask">Will you marry me?</p>
+        </div>
+        <div class="proposal-ring">💍</div>
+        <div class="proposal-buttons">
+          <button id="btn-yes" class="btn-proposal btn-yes">YES ❤️</button>
+          <button id="btn-no" class="btn-proposal btn-no">No</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▸ CELEBRATION -->
+    <section id="scene-celebration" class="scene scene--celebration" style="display:none;">
+      <canvas id="confetti-canvas"></canvas>
+      <div class="scene__content">
+        <div class="celebration-main">
+          <h1 class="celebration-title">She Said Yes! 💍❤️</h1>
+          <p class="celebration-subtitle">Our Story Has Only Just Begun</p>
+          <div class="infinity">∞</div>
+        </div>
+        <div class="future-montage">
+          <div class="future-card" data-future="1"><span class="future-icon">💒</span><span class="future-text">Our
+              Wedding Day</span></div>
+          <div class="future-card" data-future="2"><span class="future-icon">✈️</span><span
+              class="future-text">Honeymoon Adventures</span></div>
+          <div class="future-card" data-future="3"><span class="future-icon">🍫</span><span class="future-text">Baking
+              Brownies Together</span></div>
+          <div class="future-card" data-future="4"><span class="future-icon">🍳</span><span class="future-text">Cooking
+              Together</span></div>
+          <div class="future-card" data-future="5"><span class="future-icon">🏡</span><span class="future-text">Building
+              Our Dream Home</span></div>
+          <div class="future-card" data-future="6"><span class="future-icon">🌍</span><span
+              class="future-text">Traveling the World</span></div>
+          <div class="future-card" data-future="7"><span class="future-icon">💼</span><span class="future-text">Growing
+              Our Dreams Together</span></div>
+          <div class="future-card" data-future="8"><span class="future-icon">👫</span><span class="future-text">Growing
+              Old, Holding Hands</span></div>
+        </div>
+        <div class="final-message">
+          <p class="final-line">I found my <span class="n-forever">forever</span> the day I met you.</p>
+          <p class="final-line">Thank you for choosing me.</p>
+          <p class="final-line final-line--bold">Forever starts now. ❤️</p>
+        </div>
+        <div class="share-section">
+          <a id="share-whatsapp" class="btn-share" href="#" target="_blank" rel="noopener">Share Our Story ❤️</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="js/particles.js?v=2.1"></script>
+  <script src="js/starfield.js?v=2.1"></script>
+  <script src="js/scenes.js?v=2.1"></script>
+  <script src="js/proposal.js?v=2.1"></script>
+  <script src="js/main.js?v=2.1"></script>
+</body>
+
+</html>

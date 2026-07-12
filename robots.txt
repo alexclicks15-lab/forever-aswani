@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alexclicks15-lab.github.io/forever-aswani/sitemap.xml
